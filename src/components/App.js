@@ -2,21 +2,21 @@ import { useState, useEffect } from 'react';
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 
 import { ProtectedRoute } from './ProtectedRoute';
-import * as auth from '../utils/auth'; // just methods
-import { api } from '../utils/Api'; // class
+import * as auth from '../utils/auth';
+import { api } from '../utils/Api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 import { Header } from './Header';
 import { Main } from './Main';
 import { Footer } from './Footer';
-import { EditProfilePopup } from './EditProfilePopup'; // onChange
-import { EditAvatarPopup } from './EditAvatarPopup'; // input data as Ref
-import { AddPlacePopup } from './AddPlacePopup'; // inputs' data as Ref
+import { EditProfilePopup } from './EditProfilePopup';
+import { EditAvatarPopup } from './EditAvatarPopup';
+import { AddPlacePopup } from './AddPlacePopup';
 import { ImagePopup } from './ImagePopup';
 import { DeleteConfirmPopup } from './DeleteConfirmPopup';
 import { MenuMobile } from './MenuMobile';
-import { Login } from './Login'; // inputs' data as object + onChange
-import { Register } from './Register'; // inputs' data as object + onChange
+import { Login } from './Login';
+import { Register } from './Register';
 import { InfoToolTip } from './InfoTooltip';
 
 function App() {
