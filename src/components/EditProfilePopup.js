@@ -26,7 +26,7 @@ export const EditProfilePopup = ({ isOpen, onClose, onUpdateUser, onCloseOverlay
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, isOpen]);
 
   return (
     <PopupWithForm
