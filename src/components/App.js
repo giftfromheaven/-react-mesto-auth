@@ -31,6 +31,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [isDeleteConfirmPopupOpen, setDeleteConfirmPopupOpen] = useState(false);
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // buttons
@@ -122,6 +123,7 @@ function App() {
 
   const handleCardDeleteClick = (card) => {
     setDeletedCard(card);
+    setDeleteConfirmPopupOpen(true);
   };
 
   // POPUPs
@@ -142,6 +144,7 @@ function App() {
     setSelectedCard({ name: '', link: '' });
     setDeletedCard({ name: '', link: '' });
     setIsInfoToolTipOpen(false);
+    setDeleteConfirmPopupOpen(false);
   };
 
   const handleUpdateUser = (data) => {
@@ -336,10 +339,11 @@ function App() {
           onCloseOverlay={closeByOverlayClick}
         />
         <DeleteConfirmPopup
+          isOpen={isDeleteConfirmPopupOpen}
           card={deletedCard}
           onClose={closeAllPopups}
           onCloseOverlay={closeByOverlayClick}
-          onCardDelete={handleCardDelete}
+          onCardDelete={() => handleCardDelete(deletedCard)}
           isLoading={isLoading}
         />
         <InfoToolTip
